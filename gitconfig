@@ -59,3 +59,6 @@
 
 [init]
   defaultBranch = master
+[user]
+	email = araceli_martinez94@hotmail.com
+	name = Araceli Martinez
