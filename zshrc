@@ -4,7 +4,7 @@ ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="robbyrussell"
 
 # Useful oh-my-zsh plugins for Le Wagon bootcamps
-plugins=(git gitfast last-working-dir common-aliases zsh-syntax-highlighting history-substring-search)
+plugins=(git gitfast last-working-dir common-aliases zsh-syntax-highlighting history-substring-search ssh-agent)
 
 # (macOS-only) Prevent Homebrew from reporting - https://github.com/Homebrew/brew/blob/master/docs/Analytics.md
 export HOMEBREW_NO_ANALYTICS=1
@@ -70,3 +70,15 @@ export EDITOR=code
 
 # Set ipdb as the default Python debugger
 export PYTHONBREAKPOINT=ipdb.set_trace
+sudo /etc/init.d/postgresql start
+
+asta() {
+    docker compose exec -it web sh -c "$*"
+}
+rasta() {
+    docker compose exec -it web sh -c "rails $*"
+}
+alias ownership='sudo chown -R $USER:$USER .' # run it if you see a permission denied error
+alias app-init='sh init.sh' # run to create the enviroment
+alias app-start='sh start.sh' #  run every time you want to start the app.
+                              # It will run migrations and gem or packege instalations
